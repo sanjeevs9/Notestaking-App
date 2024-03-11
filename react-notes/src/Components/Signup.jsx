@@ -30,6 +30,7 @@ async function request(){
             console.log(res);
             localStorage.setItem("token", res.data.token);
            alert("User created successfully");
+           navigate("/dashboard");
             }
         ).catch((err) => {  
             console.log(err);

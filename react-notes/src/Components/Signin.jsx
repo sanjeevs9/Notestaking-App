@@ -23,6 +23,7 @@ export default function Signin() {
           console.log(res);
           localStorage.setItem("token", res.data.token);
          alert("Login successfully");
+         navigate("/dashboard");
           }
       ).catch((err) => {  
           console.log(err);
