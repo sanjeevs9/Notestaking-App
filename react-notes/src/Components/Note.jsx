@@ -27,7 +27,7 @@ export default function Note() {
     },[])
 
     function handle(){
-        //localStorage.removeItem("token")
+        localStorage.removeItem("token")
         navigate("/")
     }
     return(
@@ -51,7 +51,7 @@ export default function Note() {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {notes.map((note, index) => {
         return (
-          <Sticky id={note._id} content={note.content}  />
+          <Sticky id={note._id} content={note.content} date={note.date} />
         );
       })}
       <CreateSticky />

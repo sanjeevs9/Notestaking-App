@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function Sticky({ content, id }) {
+export default function Sticky({ content, id,date }) {
     const [color, setColor] = useState("");
 
     useEffect(() => {
@@ -22,13 +22,28 @@ export default function Sticky({ content, id }) {
             }
         }).then((res)=>{
             console.log(res.data)
-            alert("deleted")
+          
             window.location.reload()
         }
         ).catch((err)=>{
             console.log(err)
         })
     }
+
+    const format = (createdAt) => {
+      const createdAtDate = new Date(createdAt);
+      const formattedDate = createdAtDate.toLocaleString("en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "numeric",
+        second: "numeric",
+        timeZone: "UTC",
+      });
+  
+      return formattedDate;
+    };
     
   return (
     <div className="flex justify-center">
@@ -44,6 +59,7 @@ export default function Sticky({ content, id }) {
         <div style={{ height: '2000px' }}></div>
       </div> */}
         </div>
+        <div>{format(date)}</div>
         <div
           className="absolute bottom-0 right-0 mb-4 mr-4 cursor-pointer mt-auto self-end"
           

@@ -14,7 +14,7 @@ export default function CreateSticky() {
       }
     }).then((res)=>{
       console.log(res.data)
-      alert("published")
+      
       window.location.reload()
     }).catch((err)=>{
       console.log(err)

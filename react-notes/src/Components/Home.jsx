@@ -2,12 +2,15 @@ import Header from "./Header"
 import { useNavigate } from "react-router-dom";
 
 export default function Home(){
-    const navigate =useNavigate();  
+    const navigate =useNavigate();
+    const token = localStorage.getItem("token");
+
+    function handle(){
+        (token) ? navigate("/dashboard"): navigate("/signup");
+    }
     return (
         <>
        <div className="flex flex-col h-screen">
-
-      
         <Header />
         <div className="flex flex-row justify-between pl-24 pr-20   items-center  flex-1">
             <div className=" ">
@@ -22,7 +25,7 @@ export default function Home(){
                 </div>
                 <div>
                     <button className="bg-red-500 text-white p-2 rounded-md mt-4 pl-4 pr-4"
-                    onClick={()=>{navigate("/signup")}}>Try Now</button>
+                    onClick={handle}>Try Now</button>
                 </div>
             </div>
             <div className=" h-96 w-96  md:h-2/3 md:w-1/2 hidden sm:flex">

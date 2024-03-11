@@ -13,7 +13,8 @@ router.post("/create",noteAuth,auth,async(req,res)=>{
     console.log(body)
     const note=await Note.create({
         id:id,
-        content:body.content
+        content:body.content,
+        date:new Date(new Date().getTime()+(5.5*60*60*1000))
     })
     res.json(note)
 })
