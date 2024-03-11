@@ -7,8 +7,6 @@ import Signin from './Components/Signin'
 import Home from './Components/Home'
 import Note from './Components/Note'
 
-import CreateSticky from './Components/CreateSticky'
-
 function App() {
   const [count, setCount] = useState(0)
 
