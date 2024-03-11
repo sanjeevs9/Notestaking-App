@@ -4,6 +4,7 @@ const { userSignup, userSignin, note } = require("./zod");
 
 const auth=async(req,res,next)=>{
     const value=req.headers.authorization;
+
     if (!value || !value.startsWith("Bearer")) {
         res.status(404).json({
           message: "Please Login to see posts",

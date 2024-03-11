@@ -10,9 +10,9 @@ const router=express.Router();
 router.post("/create",noteAuth,auth,async(req,res)=>{
     const body=req.body;
     const id=req.id;
+    console.log(body)
     const note=await Note.create({
         id:id,
-        title:body.title,
         content:body.content
     })
     res.json(note)
@@ -20,6 +20,7 @@ router.post("/create",noteAuth,auth,async(req,res)=>{
 
 //get
 router.get('/get',auth,async(req,res)=>{ 
+    console.log(req.id)
     const notes=await Note.find({id:req.id})
     res.json(notes)
 })
@@ -37,7 +38,6 @@ router.put('/update',auth,noteAuth,async(req,res)=>{
         })
         return 
     }
-    note.title=body.title;
     note.content=body.content;
     note.date=new Date(new Date().getTime()+(5.5*60*60*1000));
     await note.save()
@@ -47,6 +47,7 @@ router.put('/update',auth,noteAuth,async(req,res)=>{
 //delete
 router.delete('/delete',auth,async(req,res)=>{
     const id=req.query.id;
+    console.log(id) 
     const note=await Note.findOne({id:req.id,_id:id})
     if(!note){
         res.status(403).json({

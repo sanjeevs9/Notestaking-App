@@ -26,10 +26,6 @@ const userSignin =zod.object({
 })
 
 const note=zod.object({
-    title:zod
-    .string({required_error:"Title is required"})
-    .min(1,{message:"Title is required"}),
-
     content:zod
     .string({required_error:"Content is required"})
     .min(1,{message:"Content is required"})
