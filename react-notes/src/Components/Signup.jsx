@@ -25,7 +25,7 @@ export default function Signup() {
 async function request(){
     console.log(value)
     if (isChecked) {
-        await axios.post("http://localhost:3000/user/signup", value)
+        await axios.post("https://notestaking-app.onrender.com/user/signup", value)
         .then((res) => {
             console.log(res);
             localStorage.setItem("token", res.data.token);

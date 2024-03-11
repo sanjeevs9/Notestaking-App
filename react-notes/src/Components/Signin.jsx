@@ -18,7 +18,7 @@ export default function Signin() {
     };
 
     async function request(){
-      await axios.post("http://localhost:3000/user/signin", value)
+      await axios.post("https://notestaking-app.onrender.com/user/signin", value)
       .then((res) => {
           console.log(res);
           localStorage.setItem("token", res.data.token);

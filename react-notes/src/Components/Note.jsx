@@ -13,7 +13,7 @@ export default function Note() {
    
 
     useEffect(()=>{
-        axios.get("http://localhost:3000/notes/get",{
+        axios.get("https://notestaking-app.onrender.com/notes/get",{
             headers:{
                 Authorization:`Bearer ${token}`
             }

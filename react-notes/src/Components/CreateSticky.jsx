@@ -6,7 +6,7 @@ export default function CreateSticky() {
 
  async function handle(){
 
-    await axios.post("http://localhost:3000/notes/create",{
+    await axios.post("https://notestaking-app.onrender.com/notes/create",{
       content:content
     },{
       headers:{
