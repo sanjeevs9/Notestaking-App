@@ -13,7 +13,7 @@ export default function Sticky({ content, id,date }) {
 
     async function handle(id){
         console.log(id)
-        await axios.delete("http://localhost:3000/notes/delete",{
+        await axios.delete("https://notestaking-app.onrender.com/notes/delete",{
             headers:{   
                 Authorization:`Bearer ${localStorage.getItem("token")}`
             },
