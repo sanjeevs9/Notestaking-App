@@ -8,7 +8,8 @@ const { User } = require("../db");
 //create
 router.post('/signup',signupAuth,async(req,res)=>{
     const body=req.body;
-    const existing=await User.findOne({emai:body.emai})
+    console.log(body)
+    const existing=await User.findOne({email:body.email})
     if(existing){
         res.status(403).json({
             message:"User already exists"
@@ -18,10 +19,11 @@ router.post('/signup',signupAuth,async(req,res)=>{
 
     const user  =await User.create({
         email:body.email,
-        password:body.email,
+        password:body.password,
         name:body.email
     })
-    const token=jwt.sign({id:user_id},"sanjeev")
+    console.log(user)
+    const token=jwt.sign({id:user._id},"sanjeev")
     res.json({
         token,
         name:user.name,
@@ -33,6 +35,7 @@ router.post('/signup',signupAuth,async(req,res)=>{
 //signin
 router.post('/signin',signinAuth,async(req,res)=>{
     const body=req.body;
+    console.log(body)
     const user=await User.findOne({email:body.email,password:body.password})
     if(!user){
         res.status(403).json({

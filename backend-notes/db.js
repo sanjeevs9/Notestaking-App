@@ -34,9 +34,10 @@ const noteSchema =mongoose.Schema({
     },
     date:{
         type:Date,
-        default:Date.now
+        default:new Date(new Date().getTime()+(5.5*60*60*1000))
     }
 })
+
 
 const User=mongoose.model("User",userSchema);
 const Note=mongoose.model("Note",noteSchema);
